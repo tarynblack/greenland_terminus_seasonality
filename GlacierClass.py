@@ -51,14 +51,14 @@ class Glacier:
 
     def getGlacierName(self):
         """Determine which glacier name to use."""
-        if self.officialname.strip() and self.officialname == self.greenlandicname:
-            name = '{} ({})'.format(self.officialname, self.alternativename)
+        if self.officialname.strip() and self.officialname.strip() == self.greenlandicname.strip() and self.alternativename.strip():
+            name = '{} ({})'.format(self.officialname.strip(), self.alternativename.strip())
         elif self.officialname.strip():
-            name = self.officialname
+            name = self.officialname.strip()
         elif self.greenlandicname.strip():
-            name = self.greenlandicname
+            name = self.greenlandicname.strip()
         elif self.alternativename.strip():
-            name = self.alternativename
+            name = self.alternativename.strip()
         else:
             name = 'Glacier #{}'.format(self.gid)
         return name
